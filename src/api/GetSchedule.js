@@ -1,6 +1,6 @@
-function get_schedule() {
-    
-    return [
+function getSchedule() {
+
+	return [
 		{
 			group: "ИСР-22",
 			schedule: [
@@ -13,6 +13,39 @@ function get_schedule() {
 							teacher: 'Шертман И. Р.',
 							location: '50',
 							home_work: 'Какой-то текст: подготовить презентации по цилиндру и пирамиде.'
+						},
+						{
+							time: '2 пара — Лекция, 08:45-10:15',
+							subject: 'Математика',
+							teacher: 'Шертман И. Р.',
+							location: '50',
+							home_work: 'Какой-то текст: подготовить презентации по цилиндру и пирамиде.'
+						}
+					]
+				},
+				{
+					date: 'Вторник, 16.06',
+					classes: [
+						{
+							time: '1 пара — Лекция, 08:45-10:15',
+							subject: 'Математика',
+							teacher: 'Шертман И. Р.',
+							location: '50',
+							home_work: 'Какой-то текст: подготовить презентации по цилиндру и пирамиде.'
+						},
+						{
+							time: '2 пара — Лекция, 08:45-10:15',
+							subject: 'Математика',
+							teacher: 'Шертман И. Р.',
+							location: '50',
+							home_work: 'Какой-то текст: подготовить презентации по цилиндру и пирамиде.'
+						},
+						{
+							time: '2 пара — Лекция, 08:45-10:15',
+							subject: 'Математика',
+							teacher: 'Шертман И. Р.',
+							location: '50',
+							home_work: 'Какой-то текст: подготовить презентации по цилиндру и пирамиде.'
 						}
 					]
 				}
@@ -21,4 +54,4 @@ function get_schedule() {
 	]
 }
 
-export default get_schedule
+export default getSchedule
