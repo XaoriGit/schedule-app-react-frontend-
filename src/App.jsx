@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
+import * as Icon from 'react-feather';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import get_shedule from './api/GetSchedule'
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+function App() {
+	const [data, setData] = useState(null)
+
+	useEffect(() => {
+		async function fetchData() {
+			const schedule = await get_shedule()
+			setData(schedule)
+		}
+		fetchData()
+	}, [])
+
+
+	return (
+		<main>
+			{data ? <>
+				<header>
+					<div>
+						<div id='group'>{data[0].group}</div>
+						<div id='date'>{data[0].schedule[0].date}</div>
+					</div>
+					<Icon.MoreVertical size={32} opacity={0.6}/>
+				</header>
+			</> : <>Загрузка</>}
+		</main>
+	)
 }
 
 export default App
