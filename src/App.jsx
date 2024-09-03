@@ -2,12 +2,11 @@ import { useEffect } from 'react'
 import { useAppContext } from './AppContext'
 import getSchedule from './api/GetSchedule'
 import './App.css'
-
-import Header from './components/Header'
-import ClassItem from './components/ClassItem'
+import ClassSwiper from './components/screens/Classes/ClassSwiper'
+import Settings from './components/screens/settings/Settings'
 
 function App() {
-    const { data, setData } = useAppContext()
+    const { data, setData, onSettings } = useAppContext()
 
     useEffect(() => {
         async function fetchData() {
@@ -20,10 +19,10 @@ function App() {
 
     return (
         <main>
-            {data ? <>
-                <Header />
-                <ClassItem />
-            </> : <>Загрузка</>}
+            {(onSettings) ?
+                <Settings /> :
+                <>{(data) ? <><ClassSwiper /></> : <>Загрузка</>}</>
+            }
         </main>
     )
 }

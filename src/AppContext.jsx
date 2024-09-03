@@ -6,14 +6,17 @@ const AppContext = createContext();
 // Провайдер контекста
 export const AppProvider = ({ children }) => {
     const [state, setState] = useState({
-        data: null
+        data: null,
+        onSettings: false,
     });
 
     // Функции для изменения состояния
     const setData = (data) => setState((prevState) => ({ ...prevState, data }));
 
+    const setOnSettings = (onSettings) => setState((prevState) => ({ ...prevState, onSettings }));
+
     return (
-        <AppContext.Provider value={{ ...state, setData }}>
+        <AppContext.Provider value={{ ...state, setData, setOnSettings }}>
             {children}
         </AppContext.Provider>
     );
